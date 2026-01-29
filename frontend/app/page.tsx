@@ -1,4 +1,4 @@
-export default function Home() {
+ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
       {/* Animated background elements */}
@@ -74,6 +74,53 @@ export default function Home() {
               <p className="text-gray-400 text-sm">Up to 70% discount on premium SaaS tools</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Social Media Footer (ONLY ADDITION) */}
+      <div className="relative z-10 border-t border-white/10 py-6 text-center text-sm text-gray-400">
+        <p className="mb-3 text-gray-300 font-medium">Built by Shivam Sharma</p>
+
+        <div className="flex flex-wrap justify-center gap-5">
+          <a
+            href="https://github.com/Aiden781Xx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition underline"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/shivam-sharma-193226311/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition underline"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="https://personalshivamglbajaj.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition underline"
+          >
+            Portfolio
+          </a>
+
+          <a
+            href="https://wa.me/917505611192"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition underline"
+          >
+            WhatsApp
+          </a>
+
+          <span className="text-gray-500">
+            Instagram: @__bhardwaj750
+          </span>
         </div>
       </div>
 
