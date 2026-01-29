@@ -1,4 +1,4 @@
-import { Router } from 'express';
+ import { Router, Response } from 'express';
 import { body, validationResult } from 'express-validator';
 import User from '../models/User.js';
 import { authMiddleware, AuthRequest } from '../middleware/auth.js';
@@ -6,7 +6,7 @@ import { authMiddleware, AuthRequest } from '../middleware/auth.js';
 const router = Router();
 
 // Get user profile (protected)
-router.get('/profile', authMiddleware, async (req: AuthRequest, res) => {
+router.get('/profile', authMiddleware, async (req: AuthRequest, res: Response) => {
   try {
     const userId = req.user?.id;
 
@@ -45,7 +45,7 @@ router.post(
     body('foundingYear').isInt({ min: 2000, max: new Date().getFullYear() }),
     body('teamSize').notEmpty(),
   ],
-  async (req: AuthRequest, res) => {
+  async (req: AuthRequest, res: Response) => {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -95,8 +95,12 @@ router.post(
 router.put(
   '/profile',
   authMiddleware,
-  [body('firstName').optional().notEmpty(), body('lastName').optional().notEmpty(), body('company').optional()],
-  async (req: AuthRequest, res) => {
+  [
+    body('firstName').optional().notEmpty(),
+    body('lastName').optional().notEmpty(),
+    body('company').optional(),
+  ],
+  async (req: AuthRequest, res: Response) => {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
