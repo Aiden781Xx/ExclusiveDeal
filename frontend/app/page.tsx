@@ -117,10 +117,7 @@
           >
             WhatsApp
           </a>
-
-          <span className="text-gray-500">
-            Instagram: @__bhardwaj750
-          </span>
+ 
         </div>
       </div>
 
