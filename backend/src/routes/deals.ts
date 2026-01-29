@@ -1,4 +1,4 @@
-import { Router } from 'express';
+ import { Router, Request, Response } from 'express';
 import { query, validationResult } from 'express-validator';
 import Deal from '../models/Deal.js';
 
@@ -12,7 +12,7 @@ router.get(
     query('isLocked').optional().isBoolean(),
     query('search').optional().isString(),
   ],
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -25,7 +25,12 @@ router.get(
       const filter: any = { status: 'active' };
 
       if (category && category !== '' && category !== 'all') {
-        filter.category = { $regex: new RegExp(`^${String(category).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') };
+        filter.category = {
+          $regex: new RegExp(
+            `^${String(category).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`,
+            'i'
+          ),
+        };
       }
 
       if (isLocked !== undefined) {
@@ -55,7 +60,7 @@ router.get(
 );
 
 // Get single deal
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
